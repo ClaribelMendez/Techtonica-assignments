@@ -1,0 +1,26 @@
+
+.left {
+    float: left;
+    width: 600px;
+    margin-top: 30px;
+    
+  }
+
+.right{
+    float: left;
+    width: 600px;
+    margin-left: 30px;
+    
+}
+body {
+    background-color: lightblue;
+  }
+
+.top{
+    font-family: 'Dancing Script', cursive;
+font-family: 'Pathway Gothic One', sans-serif;
+}
+
+.description {
+    width: 600px;
+}
