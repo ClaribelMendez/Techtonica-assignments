@@ -29,21 +29,36 @@ function showImage() {
     document.getElementById('loadingImage').style.display = 'block';
   }
 
-let color = document.getElementById("right");
-color.style.backgroundColor = "red"
+function Theme1(){
+  let color = document.getElementById("right");
+  color.style.backgroundColor = "#DD4A48";
+  let color2 = document.getElementById("left");
+  color2.style.backgroundColor = "#E3BEC6";
+}
+Theme1()
 
-// function myFunction() {
-//   let instructionsbackground = document.getElementsByClassName("left")
-//     color.style.backgroundColor = "red";
-// }
-
-// function myFunction() {
-//   document.body.style.backgroundColor = "red";
-// }
-
-// function myFunction() {
-//   document.body.style.backgroundColor = "red";
-// }
+function Theme1(){
+  let color = document.getElementById("right");
+  color.style.backgroundColor = "#DD4A48";
+  let color2 = document.getElementById("left");
+  color2.style.backgroundColor = "#E3BEC6";
+}
+Theme1()
 
 
+function Theme2(){
+  let color = document.getElementById("right");
+  color.style.backgroundColor = "blue";
+  let color2 = document.getElementById("left");
+  color2.style.backgroundColor = "red";
+}
+Theme2()
 
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+
+function myFunction() {
+  document.getElementById("left").style.transition = "all 2s";
+}
