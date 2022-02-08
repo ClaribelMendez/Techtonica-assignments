@@ -79,5 +79,9 @@ eventObj3.addAvailableTickets("Mezzanine", 200)
 eventObj3.addAvailableTickets("Balcony", 100)
 
 
-console.log(eventObj1.allTickets());
-console.log(eventObj2.allTickets())
+//console.log(eventObj1.allTickets());
+
+//console.log(eventObj2.allTickets())
+=======
+//console.log(eventObj2.allTickets())
+
