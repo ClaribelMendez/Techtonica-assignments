@@ -1,0 +1,10 @@
+#numberOfGuesses{
+        background-color: salmon;
+        padding: 30px;
+        font-size: 90px;
+        border-radius: 50%;
+        }
+
+button {
+    background: red;
+}
