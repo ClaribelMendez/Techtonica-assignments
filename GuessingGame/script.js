@@ -1,33 +1,32 @@
-let userRange = 0
-let randomNumber;
+// let guessesLeft = 5
+let randomNumber = 0
 let twenty = document.getElementById("20");
-let fourty = document.getElementById("40")
-let max = 0;
-let min = 0;
-
-let clickRange = document.getElementById("range")
-clickRange.addEventListener("click", function(){
-  if(twenty){
-    randomNumber = 10
-  }else if (fourty) {
-      randomNumber = 20
-  }
-})
-
-// twenty.addEventListener('click', chooseRange);
-// fourty.addEventListener('click', chooseRange);
-// // 60.addEventListener('click', chooseRange);
-
-// function chooseRange(){
- 
-//   generateNumber(40,20)
-// }
+let fourty = document.getElementById("40");
+let sixty = document.getElementById("60")
 
 
 
-// function generateNumber(max,min){
-//     randomNumber =  Math.floor(Math.random() * (max - min) + 1);
-// }
+twenty.addEventListener('click', chooseRange1);
+fourty.addEventListener('click', chooseRange2);
+sixty.addEventListener('click', chooseRange3);
+
+function chooseRange1(){
+  randomNumber =  Math.floor(Math.random() * (20 - 1) + 1);
+  
+}
+
+function chooseRange2(){
+
+  randomNumber =  Math.floor(Math.random() * (34-25) + 25);
+  
+}
+
+function chooseRange3(){
+  randomNumber =  Math.floor(Math.random() * (60 - 40) + 40);
+  
+}
+
+
 
 
 
@@ -54,7 +53,7 @@ function checkGuess() {
     lastResult.style.backgroundColor = 'green';
     lowOrHi.textContent = '';
     setGameOver();
-  } else if (guessCount > 20) {
+  } else if (guessCount === 5) {
     lastResult.textContent = '!!!GAME OVER!!!';
   lowOrHi.textContent = '';
   setGameOver();
@@ -69,6 +68,7 @@ function checkGuess() {
 }
 
 guessCount++; 
+
 guessField.value = ''; // empties the value of text field to guess again
 guessField.focus(); // will highlight the border 
 }
@@ -97,7 +97,7 @@ function resetGame() {
   guessField.focus();
   lastResult.style.backgroundColor = 'white';
 
-  randomNumber = Math.floor(Math.random()) * 100 + 1; // generates new random number
+  // randomNumber = Math.floor(Math.random()) * 100 + 1; // generates new random number
   resetButton.parentNode.removeChild(resetButton); // removes reset button from code
   
 
