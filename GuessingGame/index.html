@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
    
 
-    <title>Guessing Game</title>
+    <title>Number Guessing Game</title>
 
 
 </head>
@@ -18,45 +18,25 @@
             <H2> GUESS CORRECTLY AND SEE A CUTE GIF </H2>
         </Header>
 
-        <div>
-            <input type=text></input>
-            <button id="myBtn">Try it</button>
-
-       
+        <div class="form">
+            <label for="guessField">Enter a number</label>
+            <input type="text" id="guessField" class="guessField" >
+            <input type="submit" value="Submit guess" class="guessSubmit">
         </div>
 
-    <div>
-        <span id = low>Too low, try again! </span>
-        <br>
-        <span id = high>Too high, try again! </span>
-        <br>
-        <span id = close>So close, keep trying! </span>
-    </div>
+        <div class ="resultParas">
+          <p class="guesses"></p>
+          <p class="lastResult"></p>
+          <p class="lowOrHi"></p>
+        </div>
 
-    <section>
-        
-    <table>
-        <tr>
-          <th>Company</th>
-          
-        </tr>
-        <tr>
-          <td>Number of Guess</td>
-          <td>0</td>
-          <td>3</td>
-        </tr>
-        <tr>
-          <td>Numbers Guessed</td>
-          <td class = collapsedrow>>0</td>
-          <td class = collapsedrow>0</td>
-        </tr>
-      </table>
-    <br>
-    <br>
-    <br>
-    <br>
 
-      </section>
+
+      <br>
+      <br>
+      <br>
+      
+    
     
     
     <span id = numberOfGuesses>0</span>
