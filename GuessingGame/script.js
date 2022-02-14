@@ -1,11 +1,41 @@
+let userRange = 0
+let randomNumber;
+let twenty = document.getElementById("20");
+let fourty = document.getElementById("40")
+let max = 0;
+let min = 0;
+
+let clickRange = document.getElementById("range")
+clickRange.addEventListener("click", function(){
+  if(twenty){
+    randomNumber = 10
+  }else if (fourty) {
+      randomNumber = 20
+  }
+})
+
+// twenty.addEventListener('click', chooseRange);
+// fourty.addEventListener('click', chooseRange);
+// // 60.addEventListener('click', chooseRange);
+
+// function chooseRange(){
+ 
+//   generateNumber(40,20)
+// }
 
 
-let randomNumber = Math.floor(Math.random() * 3 + 1);
+
+// function generateNumber(max,min){
+//     randomNumber =  Math.floor(Math.random() * (max - min) + 1);
+// }
+
+
+
+
 
 const guesses = document.querySelector('.guesses');
 const lastResult = document.querySelector(".lastResult");
 const lowOrHi = document.querySelector(".lowOrHi");
-
 const guessSubmit = document.querySelector(".guessSubmit");
 const guessField = document.querySelector(".guessField");
 
@@ -24,7 +54,7 @@ function checkGuess() {
     lastResult.style.backgroundColor = 'green';
     lowOrHi.textContent = '';
     setGameOver();
-  } else if (guessCount === 3) {
+  } else if (guessCount > 20) {
     lastResult.textContent = '!!!GAME OVER!!!';
   lowOrHi.textContent = '';
   setGameOver();
@@ -56,7 +86,7 @@ function setGameOver() {
 
 function resetGame() {
   guessCount = 1; // resets nunber of guesses back to 1
-  const resetParas = document.querySelectorAll('.resultParas p'); // selects all paragraph tags inside form class 'resultText'.
+  const resetParas = document.querySelectorAll('.resultText p'); // selects all paragraph tags inside form class 'resultText'.
   for (const resetPara of resetParas) { // loops through each one
      resetPara.textContent = ''; // resets all textContent to an empty string
   

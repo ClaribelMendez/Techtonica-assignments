@@ -1,3 +1,7 @@
+body {
+    background: #177E89
+}
+
 #numberOfGuesses{
         background-color: salmon;
         padding: 30px;
@@ -14,3 +18,4 @@ button {
     height: 50px;
     background-color: lightpink;
 }
+
