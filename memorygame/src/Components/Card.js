@@ -1,7 +1,13 @@
-function Card(item) {
+import Cards from './Cards'
+
+
+
+function Card({item, id, handleClick}) {
     return (
-        <div className = "card">
-            <img src="{item.img}"/>
+        <div className = "card" onClick={()=> handleClick(id)}>
+            
+           <img src= {'item.img'}/>
+            
         </div>
     )
 }
