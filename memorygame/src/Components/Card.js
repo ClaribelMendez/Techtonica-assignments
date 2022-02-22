@@ -13,5 +13,6 @@ function Card({item, id, handleClick}) {
     )
 }
 
+
 export default Card;   
 
