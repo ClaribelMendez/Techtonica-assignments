@@ -1,0 +1,17 @@
+{
+  "name": "assessments",
+  "version": "1.0.0",
+  "description": "week 6 knowledge check",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "kc"
+  ],
+  "author": "claribel mendez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
