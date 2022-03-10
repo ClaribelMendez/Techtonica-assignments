@@ -63,7 +63,7 @@ function App() {
     <div className="App">
       
      
-     Hello from Techtonica
+     
      <Quizzes/>
     </div>
   );
