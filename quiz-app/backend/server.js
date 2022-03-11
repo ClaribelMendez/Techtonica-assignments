@@ -13,7 +13,7 @@ const port = 4001
 app.listen(port,() => console.log(`Server running on port ${port}`));
 
 
-const url = "https://opentdb.com/api.php?amount=2&difficulty=easy&type=multiple";
+const url = "https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple";
 app.get('/',  (req, res) => res.send('Hello World!'))
 
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
@@ -37,4 +37,4 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
 
 app.get('/quiz', cors(), (req, res) => { 
     fetch(url) .then(res => { return res.json(); }) .then(data => { console.log("data from fetch:", data) 
-    res.json(data.results); }) .catch(err => { res.redirect('/error') }); });
+    res.json(data); }) .catch(err => { res.redirect('/error') }); });
