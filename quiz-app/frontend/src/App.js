@@ -57,14 +57,24 @@
 
 import './App.css';
 import React from 'react'
-import Quizzes from './Quiz'
+import Quiz from './Components/Quiz'
+
 function App() {
+
+
+
   return (
-    <div className="App">
-      
+    <div className="container">
+        
+       
+
+      <h1>TRIVIA GAME</h1>
      
      
-     <Quizzes />
+     <Quiz  
+     
+     
+  /> 
     </div>
   );
 }

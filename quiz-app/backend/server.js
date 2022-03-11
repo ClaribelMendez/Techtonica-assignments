@@ -4,7 +4,7 @@ let request = require('request');
 
 
 
-// 
+
 
 const app = express();
 
@@ -23,12 +23,12 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
 //     request(url, function(error,response,body){ // WHERE ARE THE INPUTS TO THIS PARAMETER BEING PASSED IN?
 //         if(!error && response.statusCode === 200) {
 //             let parsedBody = JSON.parse(body);
-//             let test = parsedBody['results'][0]
-    //         let temp2 = parsedBody['list'][1].main.temp
+//             let test = parsedBody['results']
+//             // let temp2 = parsedBody['list'][1].main.temp
 
             
-            // res.send({temp1});
-    //         // res.send({temp2});
+//             res.send({test});
+//             // res.send({temp2});
 
 //         res.json({test})
 //         }
@@ -37,4 +37,4 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
 
 app.get('/quiz', cors(), (req, res) => { 
     fetch(url) .then(res => { return res.json(); }) .then(data => { console.log("data from fetch:", data) 
-    res.json(data); }) .catch(err => { res.redirect('/error') }); });
+    res.json(data.results); }) .catch(err => { res.redirect('/error') }); });

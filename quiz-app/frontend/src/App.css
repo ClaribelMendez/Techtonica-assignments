@@ -37,7 +37,10 @@
   }
 }
 
-.question-text {
-  font-size: 24px;
+/* body {
   background-color: lavender;
+} */
+
+.container {
+  background-color: white;
 }
