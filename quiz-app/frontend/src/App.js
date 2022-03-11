@@ -64,7 +64,7 @@ function App() {
       
      
      
-     <Quizzes/>
+     <Quizzes />
     </div>
   );
 }
