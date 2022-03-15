@@ -1,9 +1,15 @@
 import calendar from "./calendar.png";
 import "./App.css";
-import Footer from './components/Footer.js'
+import Footer from './components/Footer';
+import Users from './components/Users';
 
-function App() {
-  return (
+
+
+
+
+    function App() {
+      return (
+
     <div className="App">
       <header>
         <img src={calendar} alt="Calendar Star Logo" />
@@ -103,7 +109,7 @@ function App() {
      <Footer 
         text="Star Calendar favicon made by" 
         url="https://www.flaticon.com/authors/freepik"
-         title="Freepik"
+         title="Freepik" 
      />
      
      
@@ -112,8 +118,13 @@ function App() {
         url="https://www.flaticon.com/"
          title="Flaticon"
      />
+
+
+    <Users />
     </div>
-  );
-}
+   
+        
+  )
+      };
 
 export default App;
