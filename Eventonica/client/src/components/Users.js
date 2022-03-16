@@ -79,7 +79,7 @@ return (
     <input type="submit" value="Add"  />
   </form>
 </div>
-<DeleteUser handleDeleteUser={handleDeleteUser} />
+ <DeleteUser handleDeleteUser={handleDeleteUser} />
 </section>
 )
 
