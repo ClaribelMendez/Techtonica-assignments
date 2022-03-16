@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import DeleteUser from './DeleteUser'
 
 
 function Users() {
@@ -10,15 +11,23 @@ const dory = { name: 'Dory', email: 'dory@gmail.com', id: '3' };
 const [users, setUsers] = useState([marlin, nemo, dory]);
 const [ name, setName] = useState('');
 const [ email, setEmail] = useState('');
+const [ id, setId] = useState('');
+
+
 
 
 
 const handleSubmit = (e) => {
     e.preventDefault();
-    const newUser = {name,email};
+    const newUser = {name,email, id};
     setUsers([...users, newUser]);
   };
 
+  const handleDeleteUser = (deleteUser) => {
+    const deleteUsers = users.filter((user) => user.id !== deleteUser);
+    console.log(deleteUsers);
+    setUsers(deleteUsers);
+  };
 
 return (
 
@@ -56,12 +65,12 @@ return (
       onChange={(e) => setEmail(e.target.value)}
       />
 
-<label>ID</label>
+    <label>ID</label>
       <input 
       type="text"
       id="add-user-id"
-      
-      onChange={(e) => setName(e.target.value)}
+      value={id}
+      onChange={(e) => setId(e.target.value)}
       />
     </fieldset>
     
@@ -70,17 +79,7 @@ return (
     <input type="submit" value="Add"  />
   </form>
 </div>
-
-<div>
-  <h3>Delete User</h3>
-  <form id="delete-user" action="#">
-    <fieldset>
-      <label>User ID</label>
-      <input type="text" id="delete-user-id" />
-    </fieldset>
-    <input type="submit" />
-  </form>
-</div>
+<DeleteUser handleDeleteUser={handleDeleteUser} />
 </section>
 )
 

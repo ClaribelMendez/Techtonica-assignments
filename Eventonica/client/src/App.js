@@ -2,6 +2,9 @@ import calendar from "./calendar.png";
 import "./App.css";
 import Footer from './components/Footer';
 import Users from './components/Users';
+import Events from './components/Events';
+
+
 
 
 
@@ -22,42 +25,10 @@ import Users from './components/Users';
 
         <Users />
           
-          <section className="event-management">
-            <h2>Event Management</h2>
-            <div>
-              <h3>All Events</h3>
-              <ul id="events-list">
-                {/* Display all Events here */}
-                <li>...</li>
-              </ul>
-
-              <h3>Add Event</h3>
-              <form id="add-event" action="#">
-                <fieldset>
-                  <label>Name</label>
-                  <input
-                    type="text"
-                    id="add-event-name"
-                    placeholder="Virtual corgi meetup"
-                  />
-                </fieldset>
-                {/* Add more form fields here */}
-                <input type="submit" />
-              </form>
-            </div>
-          </section>
+        <Events />
         </div>
 
-        <div>
-          <h3>Delete Event</h3>
-          <form id="delete-event" action="#">
-            <fieldset>
-              <label>Event ID</label>
-              <input type="number" min="1" id="delete-event-id" />
-            </fieldset>
-            <input type="submit" />
-          </form>
-        </div>
+       
 
         <aside className="search-toolbar">
           <div>
@@ -90,7 +61,6 @@ import Users from './components/Users';
         url="https://www.flaticon.com/"
          title="Flaticon"
      />
-
 
  
     </div>
