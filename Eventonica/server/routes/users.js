@@ -17,10 +17,10 @@ router.get('/', function(req, res, next) {
 // app.use(bodyParser.json());
 
 router.post('/', (req, res) => {
-    let users = req.body;
-
-
-res.json(users)});
+  let newUser = {id: req.body.id, name: req.body.name, email: req.body.email}
+  console.log(newUser);
+  res.json({success: true});
+});
 
 module.exports = router;
 

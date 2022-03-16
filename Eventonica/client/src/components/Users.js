@@ -19,17 +19,34 @@ useEffect(() => {
   getUsers();
 }, []);
 
-let postUsers = () => {
-  fetch('http://localhost:4000/users', {
-    method: 'POST',
-    body: JSON.stringify(users)
-})
-}
+// let postUsers = async (newUser) => 
+//    await fetch('http://localhost:4000/users', {
+//     method: 'POST',
+//     body: JSON.stringify(newUser)
 
-useEffect(() => {
-  // useEffect will run getUsers() every time this component loads, as opposed to just the first time it is rendered.
-  postUsers();
-});
+// })
+
+// const postUsers = (users) => {
+// let tempUser = users[0];
+// fetch('http://localhost:4000/users', {
+//   method: 'POST', 
+//   headers: {'Content-Type': 'application/json'},
+
+//   body: JSON.stringify({tempUser}),
+// }) .then(() => {
+//       console.log('New user added')
+// })
+// .then(response => response.json())
+// .then(data => {
+//   console.log('Success:', data);
+// })
+// .catch((error) => {
+//   console.error('Error:', error);
+// });
+
+
+
+
 // const marlin = { name: 'Marlin', email: 'marlin@gmail.com', id: '1' };
 // const nemo = { name: 'Nemo', email: 'nemo@gmail.com', id: '2' };
 // const dory = { name: 'Dory', email: 'dory@gmail.com', id: '3' };
@@ -39,14 +56,25 @@ const [ name, setName] = useState('');
 const [ email, setEmail] = useState('');
 const [ id, setId] = useState('');
 
+const postUsers = (users) => {
+  const tempUser = users[0];
+  fetch('http://localhost:4000/users', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json', 
+    body: JSON.stringify(tempUser)
+  },
+  }).then((response) => {
+      response.json()
+  }).then((data) => 
+  console.log(data)
+  )
+}
 
-
-
-
-const handleSubmit = (e) => {
+const handleSubmit = async (e) => {
     e.preventDefault();
     const newUser = {name,email, id};
     setUsers([...users, newUser]);
+    await postUsers(users);
   };
 
   const handleDeleteUser = (deleteUser) => {
