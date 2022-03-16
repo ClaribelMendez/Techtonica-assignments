@@ -1,14 +1,40 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import DeleteUser from './DeleteUser'
 
 
-function Users() {
+const Users = () => {
 
-const marlin = { name: 'Marlin', email: 'marlin@gmail.com', id: '1' };
-const nemo = { name: 'Nemo', email: 'nemo@gmail.com', id: '2' };
-const dory = { name: 'Dory', email: 'dory@gmail.com', id: '3' };
+  const [users, setUsers] = useState([]);
 
-const [users, setUsers] = useState([marlin, nemo, dory]);
+console.log('users', users);
+
+const getUsers = () => {
+  fetch('http://localhost:4000/users')
+    .then((res) => res.json())
+    .then((res) => setUsers(res.users));
+};
+
+useEffect(() => {
+  // useEffect will run getUsers() every time this component loads, as opposed to just the first time it is rendered.
+  getUsers();
+}, []);
+
+let postUsers = () => {
+  fetch('http://localhost:4000/users', {
+    method: 'POST',
+    body: JSON.stringify(users)
+})
+}
+
+useEffect(() => {
+  // useEffect will run getUsers() every time this component loads, as opposed to just the first time it is rendered.
+  postUsers();
+});
+// const marlin = { name: 'Marlin', email: 'marlin@gmail.com', id: '1' };
+// const nemo = { name: 'Nemo', email: 'nemo@gmail.com', id: '2' };
+// const dory = { name: 'Dory', email: 'dory@gmail.com', id: '3' };
+
+// const [users, setUsers] = useState([marlin, nemo, dory]);
 const [ name, setName] = useState('');
 const [ email, setEmail] = useState('');
 const [ id, setId] = useState('');
