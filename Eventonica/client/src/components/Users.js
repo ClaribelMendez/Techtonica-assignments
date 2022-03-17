@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import DeleteUser from './DeleteUser'
+/*eslint consistent-return: "error"*/
 
 
 const Users = () => {
@@ -56,32 +57,32 @@ const [ name, setName] = useState('');
 const [ email, setEmail] = useState('');
 const [ id, setId] = useState('');
 
-const postUsers = (users) => {
-  const tempUser = users[0];
+const postUsers = (data) => {
+  // console.log(newUser)
+  // const tempUser = users[0];
   fetch('http://localhost:4000/users', {
     method: 'POST',
-    headers: {'Content-Type': 'application/json', 
-    body: JSON.stringify(tempUser)
-  },
+    headers: { 'Content-Type': 'application/json'}, 
+    body: JSON.stringify(data)
   }).then((response) => {
-      response.json()
+      return response.json()
   }).then((data) => 
   console.log(data)
   )
 }
 
-const handleSubmit = async (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
-    const newUser = {name,email, id};
+    const newUser = { name, email, id };
     setUsers([...users, newUser]);
-    await postUsers(users);
-  };
+    postUsers(newUser);
+  }
 
-  const handleDeleteUser = (deleteUser) => {
+  function handleDeleteUser(deleteUser) {
     const deleteUsers = users.filter((user) => user.id !== deleteUser);
     console.log(deleteUsers);
     setUsers(deleteUsers);
-  };
+  }
 
 return (
 
@@ -101,7 +102,7 @@ return (
 
 <div>
   <h3>Add User</h3>
-  <form id="add-user" action="#" onSubmit ={handleSubmit}>
+  <form id="add-user" action="#" method = 'POST' onSubmit ={handleSubmit}>
     <fieldset>
       <label>Name</label>
       <input 

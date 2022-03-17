@@ -70,7 +70,7 @@ const event1 = {
     setEvents([...events, state]);
   };
 
-  
+  console.log(events)
 
 return (
 
