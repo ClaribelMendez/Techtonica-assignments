@@ -88,21 +88,21 @@ const event1 = {
 
 return (
 
-    <section className="event-management">
+    <section id="event-management">
             <h2>Event Management</h2>
             <div>
               <h3>All Events</h3>
               <ul id="events-list">
  
             {events.map((event, index) =>
-            <li key={index}> { event.name} </li>
+            <li key={index}> { event.name} {event.date} {event.description} {event.category} </li>
         )}
         </ul>
 
 
 
               <h3>Add Event</h3>
-              <form id="add-event" action="#" onSubmit = {handleSubmit}>
+              <form id="form" action="#" onSubmit = {handleSubmit}>
                 <fieldset>
                   <label>Name</label>
                   <input
@@ -117,7 +117,7 @@ return (
                   />
                  <label>Date</label> 
                   <input
-                    type="number"
+                    type="date"
                     value={state.date}
                     onChange={(e) =>
                         dispatch({

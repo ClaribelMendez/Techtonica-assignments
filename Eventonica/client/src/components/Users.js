@@ -89,6 +89,7 @@ const addUser = () => {
     // const newUser = { name, email, id };
     // setUsers([...users, newUser]);
     addUser();
+
   }
 
   // function handleDeleteUser(deleteUser) {
@@ -117,6 +118,7 @@ const deleteUser = (id) => {
         })
         .catch((error) => {
             console.error('Error:', error);
+            getUsers()
         });
 }
 
@@ -138,10 +140,11 @@ return (
 
 <div>
   <h3>Add User</h3>
-  <form id="add-user" action="#" method = 'POST' onSubmit ={handleSubmit}>
+  <form id="form" action="#" method = 'POST' onSubmit ={handleSubmit} >
     <fieldset>
       <label>Name</label>
       <input 
+      // reset = "reset"
       type="text"
       id="add-user-name"
       value={name}
