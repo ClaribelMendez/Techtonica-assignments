@@ -7,12 +7,12 @@ const Users = () => {
 
   const [users, setUsers] = useState([]);
 
-console.log('users', users);
+// console.log('users', users);
 
-const getUsers = () => {
-  fetch('http://localhost:4000/users')
-    .then((res) => res.json())
-    .then((res) => setUsers(res.users));
+const getUsers = async () => {
+  const response = await fetch('http://localhost:4000/users');
+  const user = await response.json();
+  setUsers(user);
 };
 
 useEffect(() => {
@@ -57,32 +57,68 @@ const [ name, setName] = useState('');
 const [ email, setEmail] = useState('');
 const [ id, setId] = useState('');
 
-const postUsers = (data) => {
-  // console.log(newUser)
-  // const tempUser = users[0];
-  fetch('http://localhost:4000/users', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json'}, 
-    body: JSON.stringify(data)
-  }).then((response) => {
-      return response.json()
-  }).then((data) => 
-  console.log(data)
-  )
+const addUser = () => {
+  const newUser = { id: id, name: name, email: email };
+  fetch("http://localhost:4000/users", {
+      method: "POST",
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      // body data type must match content-type
+      // convert to a JSON string
+      body: JSON.stringify(newUser),
+  })
+      // json() method of response returns a
+      // promise which resolves with the result of
+      // parsing the body text as JSON
+      .then(response => response.json())
+      .then(data => {
+          console.log('Success:', data);
+          // if success, do the following
+          setUsers([...users, newUser])
+          setName('');
+          setId('');
+          setEmail('');
+      })
+      .catch((error) => {
+          console.error('Error:', error);
+      });
 }
-
   function handleSubmit(e) {
     e.preventDefault();
-    const newUser = { name, email, id };
-    setUsers([...users, newUser]);
-    postUsers(newUser);
+    // const newUser = { name, email, id };
+    // setUsers([...users, newUser]);
+    addUser();
   }
 
-  function handleDeleteUser(deleteUser) {
-    const deleteUsers = users.filter((user) => user.id !== deleteUser);
-    console.log(deleteUsers);
-    setUsers(deleteUsers);
-  }
+  // function handleDeleteUser(deleteUser) {
+  //   const deleteUsers = users.filter((user) => user.id !== deleteUser);
+  //   console.log(deleteUsers);
+  //   setUsers(deleteUsers);
+  // }
+
+  const handleDeleteUser = (id) => {
+    deleteUser(id);
+};
+
+const deleteUser = (id) => {
+    fetch(`http://localhost:4000/users/${id}`, {
+        method: "DELETE",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            // if success, do the following
+            const newUsers = users.filter((i) => i.id !== id);
+            setUsers(newUsers);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
 
 return (
 

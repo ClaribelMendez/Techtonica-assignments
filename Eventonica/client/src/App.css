@@ -1,5 +1,5 @@
 fieldset {
-  border: none;
+  border: solid 5px;
   margin: 1rem 0;
 }
 
@@ -33,3 +33,4 @@ footer {
 footer span{
   margin-left: 5px;
 }
+
