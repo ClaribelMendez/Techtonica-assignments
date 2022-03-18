@@ -1,35 +1,11 @@
-import React, { useState, useReducer} from 'react';
+import React, { useState, useReducer, useEffect } from 'react';
 
 const Events = () => {
 
-const event1 = {
-    id: "1",
-    name: "Birthday",
-    date: "2021-09-01",
-    description: "A birthday party for my best friend",
-    category: "Celebration",
-  };
-  
-  const event2 = {
-    id: "2",
-    name: "Graduation",
-    date: "2021-08-01",
-    description: "The class of 2021 graduates from East High",
-    category: "Education",
-  };
-  
-  const event3 = {
-    id: "3",
-    name: "JS Study Session",
-    date: "2021-10-01",
-    description: "A chance to practice Javascript interview questions",
-    category: "Education",
-  };
+
 
   const [events, setEvents] = useState([
-    event1,
-    event2,
-    event3
+  
 
   ])
 
@@ -63,14 +39,28 @@ const event1 = {
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  const getEvents = async () => {
+    const response = await fetch('http://localhost:4000/events');
+    const event = await response.json();
+    setEvents(event);
+  };
+  
+  useEffect(() => {
+    // useEffect will run getUsers() every time this component loads, as opposed to just the first time it is rendered.
+    getEvents();
+  },[]);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // const newEvents = {state: 'name'};
     setEvents([...events, state]);
+    // getEvents()
   };
 
   console.log(events)
+
+  
 
 return (
 
